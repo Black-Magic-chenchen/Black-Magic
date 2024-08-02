@@ -1,0 +1,103 @@
+html,body{
+    margin:0;
+    padding:0;
+    background: red url(../image/背景.jpg);
+}
+
+.logo{
+    height: 100px;
+    width: 20%;
+    float:left;
+    background: white ;
+}
+
+.search-contianer{
+    width: 25%;
+    height: 100px;
+    float:left;
+    background:white;
+}
+
+.search-contianer form{
+    margin:30px;
+}
+
+.search-contianer input{
+    height: 40px;
+    width: 80%;
+}
+
+.search-contianer button{
+    height: 40px;
+    padding: 10px;
+    width: 40px;
+    background: #F5FFFA url(../image/搜索.jpg);
+    padding-top: 20px;
+}
+.main-nav{
+    height:100px;
+    width: 55%;
+    background:white;
+    float: right;
+    opacity: 1.0;
+}
+
+.side-nav{
+    width:15%;
+    background:#F5FFFA;
+    float:left;
+    height: 1000px;
+    opacity: 1.0;
+}
+
+.content{
+    width: 80%;
+    background:	#F5F5F5;
+    float:left;
+    height: 940px;
+    opacity: 0.8;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.main-nav ul{
+    list-style-type: none;
+    text-align: end;
+    opacity: 1.0;
+}
+
+.side-nav ul{
+    list-style-type: none;
+}
+.main-nav ul li{
+    display:inline-block;
+    position: relative;
+}
+
+.main-nav ul li a{
+    background:white;
+    display: block;
+    padding:20px 45px;
+    color:green;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    margin: auto;
+    margin-left: 62px;
+    opacity: 1.0;
+}
+.side-nav ul li a{
+    background:#F5FFFA;
+    display: block;
+    padding: 20px 30px;
+    color: green;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight:300;
+    text-align: center;
+    opacity: 1.0;
+}
+
+ul li a:hover{
+    color:pink;
+}

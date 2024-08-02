@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>情绪测试</title>
+    <link href="{{ url_for('static', filename = 'home/css/xinliceshi.css') }}" rel="stylesheet" type="text/css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+<div class="index">
+    <h1 class="biaoti1">情绪测试</h1>
+    <h2 class="biaoti2">试题来源：小红书</h2>
+    <h3 class="biaoti3">选A得3分，选B得2分，选C得1分</h3>
+    <h4 class="biaoti4">分数越高，情绪越不稳定</h4>
+    <hr>
+    <form class="biaodan" method="POST" action="/情绪">
+        <ol>
+            <li>请选择今天的日期</li>
+            <label><input type="date" name="riqi"/></label>
+            <br/>
+            <br/>
+            <li>看到自己最近一次拍摄的照片，你有何想法？</li>
+            <label><input type="radio" name="question1" value="3"/></label>非常满意<br/>
+            <label><input type="radio" name="question1" value="2"/></label>不满意<br/>
+            <label><input type="radio" name="question1" value="1"/></label>一般<br/>
+            <br/>
+            <li>你是否想到若干年后会有什么使自己极为不安的事？</li>
+            <label><input type="radio" name="question2" value="3"/></label>经常如此<br/>
+            <label><input type="radio" name="question2" value="2"/></label>偶尔有过<br/>
+            <label><input type="radio" name="question2" value="1"/></label>从来没有<br/>
+            <br/>
+            <li>你是否被朋友、同事、同学起过绰号、挖苦过？</li>
+            <label><input type="radio" name="question3" value="3"/></label>经常如此<br/>
+            <label><input type="radio" name="question3" value="2"/></label>偶尔有过<br/>
+            <label><input type="radio" name="question3" value="1"/></label>从来没有<br/>
+            <br/>
+            <li>你上床以后，是否经常再起来一次，看看门窗、电器、煤气是否关好？</li>
+            <label><input type="radio" name="question4" value="3"/></label>经常如此<br/>
+            <label><input type="radio" name="question4" value="2"/></label>偶尔有过<br/>
+            <label><input type="radio" name="question4" value="1"/></label>从来没有<br/>
+            <br/>
+            <li>你对与你关系最密切的人是否满意？</li>
+            <label><input type="radio" name="question5" value="3"/></label>不满意<br/>
+            <label><input type="radio" name="question5" value="2"/></label>基本满意<br/>
+            <label><input type="radio" name="question5" value="1"/></label>非常满意<br/>
+            <br/>
+            <li>你在半夜的时候，是否经常觉得有什么害怕的事？</li>
+            <label><input type="radio" name="question6" value="3"/></label>经常如此<br/>
+            <label><input type="radio" name="question6" value="2"/></label>极少有过<br/>
+            <label><input type="radio" name="question6" value="1"/></label>从来没有<br/>
+            <br/>
+            <li>你是否经常因梦见什么可怕的事而惊醒？</li>
+            <label><input type="radio" name="question7" value="3"/></label>经常如此<br/>
+            <label><input type="radio" name="question7" value="2"/></label>极少有过<br/>
+            <label><input type="radio" name="question7" value="1"/></label>从来没有<br/>
+            <br/>
+            <li>你是否曾经多次做过同一个梦？</li>
+            <label><input type="radio" name="question8" value="3"/></label>经常如此<br/>
+            <label><input type="radio" name="question8" value="2"/></label>记不清了<br/>
+            <label><input type="radio" name="question8" value="1"/></label>从来没有<br/>
+            <br/>
+            <li>有没有一种食物使你吃后呕吐？</li>
+            <label><input type="radio" name="question9" value="3"/></label>经常如此<br/>
+            <label><input type="radio" name="question9" value="2"/></label>极少有过<br/>
+            <label><input type="radio" name="question9" value="1"/></label>从来没有<br/>
+            <br/>
+
+        </ol>
+        <input type="hidden" name="my_var" id="my_var_input">
+        <br/>
+        <input type="submit" id="tijiao">
+    </form>
+    <a href="/">返回主页</a>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#tijiao").click(function () {
+            let totalScore = 0;
+            totalScore += parseInt($('input[name="question1"]:checked').val());
+            totalScore += parseInt($('input[name="question2"]:checked').val());
+            totalScore += parseInt($('input[name="question3"]:checked').val());
+            totalScore += parseInt($('input[name="question4"]:checked').val());
+            totalScore += parseInt($('input[name="question5"]:checked').val());
+            totalScore += parseInt($('input[name="question6"]:checked').val());
+            totalScore += parseInt($('input[name="question7"]:checked').val());
+            totalScore += parseInt($('input[name="question8"]:checked').val());
+            totalScore += parseInt($('input[name="question9"]:checked').val());
+            alert("总得分是: " + totalScore);
+            document.getElementById('my_var_input').value = totalScore;
+        });
+    });
+
+</script>
+</body>
+</html>

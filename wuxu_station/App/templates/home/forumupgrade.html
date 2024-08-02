@@ -1,0 +1,26 @@
+{% extends "home/forumbase.html" %}
+
+{% block title %}写下您的想法吧！{% endblock %}
+
+{% block head %}{% endblock %}
+
+{% block body %}
+    <div class="row" style="margin-top: 20px;">
+        <div class="col"></div>
+        <div class="col-10">
+            <h1 style="text-align: center;">我要分享</h1>
+            <form action="/forum/personal/upgrade/{{ content.id }}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <textarea name="content" class="form-control" rows="10"
+                              placeholder="请输入修改的内容">{{ content.content }}</textarea>
+                </div>
+                <div class="form-group" style="text-align: right;">
+
+                    <input type="file" name='file' id="fileinp" accept='image/*'>
+                    <button class="btn btn-primary">发布</button>
+                </div>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+{% endblock %}

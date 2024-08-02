@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科普</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'home/css/knowledge_style.css') }}">
+
+    
+</head>
+<body>
+    <div class="header">
+        <div class="img-logo">
+              <img src="{{ url_for('static', filename = 'home/images/驿站2.png') }}">
+        </div>
+        <p class="name">无绪驿站</p>
+      <ul class="nav">
+        <li><a href="/" class="hover-one">首页</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</li>
+        <li><a href="/write" class="hover-one">心理论坛</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</li>
+        <li><a href="/情绪" class="hover-one">心理测试</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</li>
+        <li><a href="https://xinli.swjtu.edu.cn/" class="hover-one">心理咨询</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</li>
+        <li class="last">
+            {% if request.cookies.get('user_id') %}
+            <a href="/user" class="hover-one">个人中心</a></li>
+
+          {% else %}
+            <a href="/login" class="hover-one">登录注册</a></li>
+          {% endif %}
+      </ul>
+
+
+   
+    </div>
+    <div style="height:20px;background-color:#DCDCDC;width:1200px;margin:0 auto"></div>
+    <div class="anxiety-depression">
+       <h1 class="topic">广泛性焦虑症</h1>
+       <p class="topic_second">也称为GAD
+       </p>
+      <div class="content">
+         <p>广泛性焦虑障碍（Generalized Anxiety Disorder ，GAD），是一种以焦虑症状为主要临床表现的精神障碍，又称慢性焦虑症。患者常常会不明原因的出现提心吊胆、终日惴惴不安、肌肉紧张以及伴随显著的自主神经功能紊乱。患者往往能够意识到自己的担忧是不合理或是过度的，却仍然无法控制自己的想法。久而久之，产生难以承受的痛苦感，干扰正常生活。</p>
+         <br>
+           <p>目前，研究发现GAD在女性中的患病率约为男性的2倍，且美国普遍终生患病率为5.1%-11.9%，是临床中最为常见的精神障碍之一。在我国显示的流行病率也正处于上升趋势，需要引起大众的注意。</p>
+  
+      </div>
+      <h3 class="continue">
+       深度探索广泛性焦虑症
+      </h3>
+     <div class="article">
+       <div class="first">
+             <a href="https://www.verywellmind.com/what-is-high-functioning-anxiety-4140198">
+               <div class="card-img-two" style="background:url({{ url_for('static', filename = 'home/images/anxiety-first.png') }})">
+      
+              </div></a>
+          <div class="card-content">ANXIETY</div>
+          <div class="card-title"><a  class="hover-one" href="https://www.verywellmind.com/what-is-high-functioning-anxiety-4140198">
+                 高功能焦虑是什么感觉？
+               </a>
+           </div>
+       </div>
+       <div class="first">
+           <a href="https://www.verywellmind.com/what-is-an-adjustment-disorder-4799768">
+              <div class="card-img-two" style="background:url({{ url_for('static', filename = 'home/images/anxiety-second.png') }})">
+      
+           </div></a>
+            <div class="card-content">ANXIETY</div>
+            <div class="card-title"><a class="hover-one" href="https://www.verywellmind.com/what-is-an-adjustment-disorder-4799768">
+             什么是自由浮动焦虑？
+            </a>
+            </div>
+       
+        </div>
+        <div>
+           <div class="second">
+              <div class="card-content">ANXIETY</div>
+              <div class="card-title-two"><a class="hover-one" href="https://www.verywellmind.com/extreme-anxiety-symptoms-types-treatments-and-coping-5201901">
+
+               如何应对极度焦虑？</a>
+               </div>
+               <a href="https://www.verywellmind.com/extreme-anxiety-symptoms-types-treatments-and-coping-5201901"  class="card-img" >
+          
+        
+             </a>
+           </div>
+            <div class="second">
+              <div class="card-content">ANXIETY</div>
+                <div class="card-title-two" ><a class="hover-one" href="https://www.verywellmind.com/are-you-worrying-too-much-2584124">
+               如何停止担心未来？</a>
+              </div>
+               <a   href="https://www.verywellmind.com/are-you-worrying-too-much-2584124" class="card-img" style="background: url({{ url_for('static', filename = 'home/images/article-4.png') }});">
+     
+    
+                 </a>
+            </div>
+                  
+        </div>
+        
+      </div>
+      
+       
+      
+
+    </div>
+    <div style="height:20px;background-color:white;width:1200px;margin:0 auto"></div>
+    <div class="anxiety-depression">
+        <h1 class="topic">抑郁症</h1>
+      
+     <div class="content">
+         <p>抑郁症又称抑郁障碍，以显著而持久的心境低落为主要临床特征，是心境障碍的主要类型。它主要包括：重度抑郁症、持续性抑郁症、季节性抑郁症。</p>
+         <br>
+          <p>临床可见心境低落与其处境不相称，情绪的消沉可以从闷闷不乐到悲痛欲绝，自卑抑郁，甚至悲观厌世，可有自杀企图或行为；甚至发生木僵；部分病例有明显的焦虑和运动性激越；严重者可出现幻觉、妄想等精神病性症状。</p>
+        <br>
+          <p>每次发作持续至少2周以上、长者甚或数年，多数病例有反复发作的倾向，每次发作大多数可以缓解，部分可有残留症状或转为慢性。</p>
+      </div>
+     <h3 class="continue">
+      深度探索抑郁症
+     </h3>
+       <div class="article">
+           <div class="first">
+             <a href="https://www.verywellmind.com/relationships-and-depression-10-tips-to-cope-1067466">
+               <div class="card-img-two" style="background:url({{ url_for('static', filename = 'home/images/article-5.png') }})">
+     
+               </div></a>
+                 <div class="card-content">ANXIETY</div>
+               <div class="card-title"><a  class="hover-one" href="https://www.verywellmind.com/relationships-and-depression-10-tips-to-cope-1067466">
+                    支持抑郁伴侣的10种方法
+                   </a>
+                </div>
+            </div>
+          <div class="first">
+             <a href="https://www.verywellmind.com/common-types-of-depression-1067313">
+             <div  class="card-img-two" style="background:url({{ url_for('static', filename = 'home/images/article-6.png') }})">
+     
+             </div></a>
+                 <div class="card-content">ANXIETY</div>
+                 <div class="card-title"><a class="hover-one" href="https://www.verywellmind.com/common-types-of-depression-1067313">
+                 7种常见的抑郁症类型
+                   </a>
+                    </div>
+      
+           </div>
+         <div>
+            <div class="second">
+                 <div class="card-content">ANXIETY</div>
+                  <div class="card-title-two"><a class="hover-one" href="https://www.verywellmind.com/social-media-and-depression-5085354">
+                      社交媒体会导致抑郁吗？</a>
+                </div>
+                <a href="https://www.verywellmind.com/social-media-and-depression-5085354" style="background: url({{ url_for('static', filename = 'home/images/article-7.png') }});"   class="card-img" >
+         
+       
+                 </a>
+             </div>
+               <div class="second">
+                    <div class="card-content">ANXIETY</div>
+                      <div class="card-title-two" ><a class="hover-one" href="https://www.verywellmind.com/depression-is-an-ongoing-battle-6648016">
+                          抑郁症是一场持续的战斗</a>
+                       </div>
+                        <a   href="https://www.verywellmind.com/depression-is-an-ongoing-battle-6648016" class="card-img" style="background: url({{ url_for('static', filename = 'home/images/article-8.png') }});">
+                        </a>
+                 </div>
+          </div>
+
+    </div>
+    <div style="height:20px;background-color:white;width:1200px;margin:0 auto"></div>
+    <div class="anxiety-depression">
+
+
+           <h1 class="topic">心理学</h1>
+      
+           <div class="content">
+                     <p>心理学是一门研究人类心理现象及其影响下的精神功能和行为活动的科学，兼顾突出的理论性和应用（实践）性。</p>
+                         <br>
+                        <p>心理学包括基础心理学与应用心理学，其研究涉及知觉、认知、情绪、思维、人格、行为习惯、人际关系、社会关系，人工智能，IQ，性格等许多领域，也与日常生活的许多领域——家庭、教育、健康、社会等发生关联。心理学一方面尝试用大脑运作来解释个体基本的行为与心理机能，同时，心理学也尝试解释个体心理机能在社会行为与社会动力中的角色；另外，它还与神经科学、医学、哲学、生物学、宗教学等学科有关，因为这些学科所探讨的生理或心理作用会影响个体的心智。实际上，很多人文和自然学科都与心理学有关，人类心理活动其本身就与人类生存环境密不可分，与人文社会不可分割。</p>
+                            <br>
+                        <p>心理学家从事基础研究的目的是描述、解释、预测和影响行为。应用心理学家还有第五个目的——提高人类生活的质量。这些目标构成了心理学事业的基础。</p>
+             </div>
+                       <h3 class="continue">
+                        深度探索心理学
+                            </h3>
+        <div class="psychology-items">
+                   <h1 class="topic">行为心理学</h1>
+      
+                   <div class="content">
+                        <p>行为心理学是20世纪初起源于美国的一个心理学流派，它的创建人为美国心理学家华生。 行为主义观点认为，心理学不应该研究意识，只应该研究行为。所谓行为就是有机体用以适应环境变化的各种身体反应的组合。这些反应不外是肌肉收缩和腺体分泌，它们有的表现在身体外部，有的隐藏在身体内部，强度有大有小。
+                        </p>
+                   </div>
+             <div class="third">
+
+
+                      
+                           <a href="https://www.verywellmind.com/how-herd-mentality-explains-our-behavior-7487018">
+                          <div class="card-img-four" style="background:url({{ url_for('static', filename = 'home/images/article-9.png') }})">
+            
+                           </div></a>
+                         <div class="card-content">Behavior</div>
+                              <div class="card-title"><a  class="hover-one" href="https://www.verywellmind.com/how-herd-mentality-explains-our-behavior-7487018">
+                               从众心理如何解释我们的行为
+                               </a>
+                              </div>
+                     
+               </div>
+              <div class="fourth">
+
+
+                
+                             <a href="https://www.verywellmind.com/what-is-maslows-hierarchy-of-needs-4136760">
+                              <div class="card-img-three" style="background:url({{ url_for('static', filename = 'home/images/article-10.png') }})">
+            
+                               </div></a>
+                               <div class="card-content">Behavior</div>
+                                <div class="card-title"><a  class="hover-one"  href="https://www.verywellmind.com/what-is-maslows-hierarchy-of-needs-4136760">
+                                马斯洛需求层次理论
+                                 </a>
+                              </div>
+                   
+               </div>
+                   <div class="fourth" style="margin:0">
+
+
+                           
+                              <a href="https://www.verywellmind.com/what-is-holism-4685432">
+                               <div class="card-img-three" style="background:url({{ url_for('static', filename = 'home/images/article-11.png') }})">
+            
+                                  </div></a>
+                                <div class="card-content">Behavior</div>
+                                   <div class="card-title"><a  class="hover-one" href="https://www.verywellmind.com/what-is-holism-4685432">
+                                              什么是整体主义？
+                                     </a>
+                                    </div>
+                             
+                     </div>
+            
+         
+        </div>
+       
+         
+          <div class="psychology-items-last">
+              <h1 class="topic">社会心理学</h1>
+          
+              <div class="content">
+                 <p>社会心理学是指研究个体和群体在社会相互作用中的心理和行为发生及变化规律。在个体水平上进行研究的内容有：个体社会化过程，交往，言语发展，伙伴，家庭和居住环境及学校对个人的影响等。在社会群体水平上进行研究的内容有：群体交往结构、群体规范，态度、种族偏见攻击行为、风俗习惯和文化等。
+                  </p>
+              </div>
+              <div class="third">
+    
+    
+                <div>
+
+
+                  <a href="https://www.verywellmind.com/what-is-othering-5084425">
+                    <div class="card-img-four" style="background:url({{ url_for('static', filename = 'home/images/article-12.png') }})">
+                  
+                   </div></a>
+                   <div class="card-content">Society</div>
+                   <div class="card-title"><a  class="hover-one" href="https://www.verywellmind.com/what-is-othering-5084425">
+                    他者化如何助长歧视和偏见
+                    </a>
+                   </div>
+                </div>
+                  
+              
+              </div>
+              <div class="fourth">
+    
+    
+                
+                  <a href="https://www.verywellmind.com/what-are-collectivistic-cultures-2794962">
+                  <div class="card-img-three" style="background:url({{ url_for('static', filename = 'home/images/article-13.png') }})">
+                
+                    </div></a>
+                   <div class="card-content">Society</div>
+                    <div class="card-title"><a  class="hover-one"  href="https://www.verywellmind.com/what-are-collectivistic-cultures-2794962">
+                      什么是集体主义文化？
+                       </a>
+                    </div>
+                  
+                  
+              
+              </div>
+              <div class="fourth" style="margin:0">
+    
+    
+                
+                  <a href="https://www.verywellmind.com/social-cognition-2795912">
+                  <div  class="card-img-three" style="background:url({{ url_for('static', filename = 'home/images/article-14.png') }})">
+                
+                   </div></a>
+                     <div class="card-content">Society</div>
+                     <div class="card-title"><a  class="hover-one" href="https://www.verywellmind.com/social-cognition-2795912">
+                     心理学中的社会认知
+                     </a>
+                  
+                      </div>
+               </div>
+          </div>
+     </div>
+     
+     
+     <div class="anxiety-depression">
+      <h1 class="topic">生物心理学</h1>
+     <div class="content">
+       <p>生物心理学（Biological Psychology）又被称为心理生物学、心理生理学等，是一种用生物学方法，如神经系统的解剖结构、生物化学反应、脑组织的分区功能等来描述和解释人类行为的一项基础学科。</p>
+       <br>
+       <p>生物心理学主要以研究脊椎动物中枢神经系统结构和其功能为主，从本质上解释人类的意识从何而来，以及行为的生物学原理，包括脑组织结构、遗传倾向等。</p>
+     </div>
+     
+    <div class="article">
+      <div class="first">
+            <a href="https://www.verywellmind.com/what-does-grey-matter-in-the-brain-do-7547412">
+              <div class="card-img-two" style="background:url({{ url_for('static', filename = 'home/images/article-15.png') }})">
+     
+             </div></a>
+         <div class="card-content">Biology</div>
+         <div class="card-title"><a  class="hover-one" href="https://www.verywellmind.com/what-does-grey-matter-in-the-brain-do-7547412">
+              大脑中的灰质有什么作用？
+              </a>
+          </div>
+      </div>
+      <div class="first">
+          <a href="https://www.verywellmind.com/what-is-brain-plasticity-2794886">
+             <div class="card-img-two" style="background:url({{ url_for('static', filename = 'home/images/article-16.png') }})">
+     
+          </div></a>
+           <div class="card-content">Biology</div>
+           <div class="card-title"><a class="hover-one" href="https://www.verywellmind.com/what-is-brain-plasticity-2794886">
+            什么是神经可塑性？
+           </a>
+           </div>
+      
+       </div>
+       <div>
+          <div class="second">
+             <div class="card-content">Biology</div>
+             <div class="card-title-two"><a class="hover-one" href="https://www.xinli001.com/info/100492614">
+                 了解神经递质，情绪和感觉背后的操盘手</a>
+              </div>
+              <a href="https://www.xinli001.com/info/100492614"  class="card-img" style="background:url({{ url_for('static', filename = 'home/images/article-17.png') }})" >
+         
+       
+            </a>
+          </div>
+           <div class="second">
+             <div class="card-content">Biology</div>
+             <div class="card-title-two" ><a class="hover-one" href="https://www.xinli001.com/info/100492276">
+                 我们的思维从何而来：微情绪如何影响自发思维？</a>
+             </div>
+              <a   href="https://www.xinli001.com/info/100492276" class="card-img" style="background: url({{ url_for('static', filename = 'home/images/article-18.png') }});">
+    
+   
+                </a>
+           </div>
+                 
+       </div>
+       
+     </div>
+     
+
+   </div>
+     
+
+       
+         
+           
+        
+
+    </div>
+</body>
+</html>

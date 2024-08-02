@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>提意见</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'home/css/advice_style.css') }}">
+</head>
+<body>
+    <div class="header">
+        
+            <a class="logo" href="/">
+
+            </a>
+        
+        <div class="headerright">
+            <ul>
+                <li><a href="/抑郁症">心理测试</a></li>
+                <li><a href="/knowledge">心理科普</a></li>
+                <li><a href="/write">心理论坛</a></li>
+                <li><a href="https://xinli.swjtu.edu.cn/">心理咨询</a></li> 
+                <li><a  href="/user" class="last">个人中心</a></li>
+            </ul>
+
+   
+        </div>
+    </div>
+    <div class="questioncontent">
+        <div class="sp-outer"></div>
+        <h1>用户体验意见反馈</h1> 
+        <p class="remind-one">尊敬的用户：</p>
+        <p class="remind-two">您好!如果你在使用过程中遇到什么问题或有什么建议，欢迎您及时向我们提出，以便为您提供更好的产品体验与服务。对您的配合与支持表示衷心的感谢！</p>
+             
+        <form class="content-main" method="POST" action="/advice">
+        <div class="content-main">
+            <p class="question-item">
+                如果您有什么问题及建议，请在这里留言！
+             </p>
+             <textarea class="sp-input-first" name="content"></textarea>
+
+        </div>
+
+
+    <div class="footer">
+         <p class="question-item">
+                为了方便我们与您联系，可填写您的手机号。
+             </p>
+             <textarea class="sp-input-two" name="telephone"></textarea>
+
+        <input class="btn_submit" type="submit" value="提交">
+
+
+
+    </div>
+            </form>
+        
+    </div>
+</body>
+</html>

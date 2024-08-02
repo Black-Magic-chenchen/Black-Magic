@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 加一行测试注释 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="{{ url_for('static' ,filename='agenda/agenda-static/bootstrap/bootstrap.4.6.min.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='agenda/agenda-static/css/init.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='layui/css/layui.css' ) }}">
+    <script src="{{ url_for('static',filename='layui/layui.js' ) }}"></script>
+    <title>{% block title %}{% endblock %}</title>
+    <!--    详情页面自己的css,js都放在header当中-->
+    {% block head %}{% endblock %}
+    <!--    标题自定义-->
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/forum">心灵论坛</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">首页 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/write">发布</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/forum/personal">我的帖子</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/collect">我的收藏</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav">
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    {% block body %}{% endblock %}
+</div>
+</body>
+
+</html>
+
+<script>
+    function getFileNameAndExtension() {
+        var fileInput = document.getElementById("fileinp");
+        var filePath = fileInput.value;
+        document.getElementById("text").textContent = filePath.split("\\").pop().split("/").pop()
+    }
+
+</script>
+
+<script>
+    function getFileNameAndExtension() {
+        var fileInput = document.getElementById("videoupload");
+        var filePath = fileInput.value;
+        document.getElementById("text").textContent = filePath.split("\\").pop().split("/").pop()
+    }
+
+</script>
+
+
+{#<script>#}
+{#    layui.use(function () {#}
+        {#var upload = layui.upload;#}
+        {#var layer = layui.layer;#}
+        {#// 渲染#}
+        {#upload.render({#}
+        {#    elem: '.demo-class-accept', // 绑定多个元素#}
+        {#    url: '/forum', // 此处配置你自己的上传接口即可#}
+        {#    accept: 'video', // 普通文件#}
+        {#    done: function (res) {#}
+        {#        layer.msg('上传成功');#}
+        {#        console.log(res);#}
+        {#    }#}
+
+{#    });#}
+{#</script>#}

@@ -1,0 +1,73 @@
+{% extends "home/forumbase.html" %}
+
+{% block title %}论坛列表{% endblock %}
+
+{% block head %}
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='agenda/agenda-static/css/index.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="row" style="margin-top: 20px;">
+        <div class="col"></div>
+        <div class="col-10">
+            <ul class="question-ul">
+
+                {% for content in contents %}
+                    <li>
+
+                        <div class="side-question">
+
+                            {% if content.user.img %}
+                                <img class="side-question-avatar"
+                                     src="{{ url_for('static',filename=content.user.img) }}" alt="">
+                            {% else %}
+                                <img class="side-question-avatar"
+                                     src="{{ url_for('static',filename='home/images/avatar.jpg') }}" alt="">
+                            {% endif %}
+                        </div>
+                        <div class="question-main">
+
+                            <div class="question-content"><a
+                                    href="/forum/detail/{{ content.id }}">{{ content.content }}</a></div>
+                            {% if content.img %}
+                                <img class="side-question-enlarge" src="{{ url_for('static',filename=content.img) }}"
+                                     alt="">{% endif %}
+                         <table class="layui-table" style="width: 350px;margin-left: 0">
+                                <colgroup>
+                                    <col width="500">
+                                    <col width="0">
+                                    <col>
+                                </colgroup>
+                                <tbody>
+
+                                <tr>
+                                    <td>{{ content.url }}</td>
+                                    <td><a href="/video_view?url={{ content.url }}" class="layui-btn  layui-btn-sm">点击观看</a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                            <div class="question-detail">
+                            <span class="question-author"><a
+                                    href="/forum/personal/upgrade/{{ content.id }}">修改</a></span>
+                                <span class="question-author"><a
+                                        href="/forum/personal/del/{{ content.id }}">删除</a></span>
+
+                            </div>
+                            <div class="question-detail">
+                                <span class="question-author">{{ content.user.nicheng }}</span>
+                                <span class="question-time">{{ content.create_time }}</span>
+                            </div>
+
+                        </div>
+
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col"></div>
+    </div>
+{% endblock %}
+

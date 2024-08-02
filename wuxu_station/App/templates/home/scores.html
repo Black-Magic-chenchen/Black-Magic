@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试分数</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'home/css/user_style.css') }}">
+    <script src="{{ url_for('static', filename='home/js/echarts.js') }}"></script>
+</head>
+
+<body>
+<div class="header">
+    <div class="img-logo">
+        <img src="{{ url_for('static', filename = 'home/images/驿站2.png') }}">
+    </div>
+    <p class="name">无绪驿站</p>
+    <ul class="nav">
+        <li><a href="/" class="hover-one">首页</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</li>
+        <li><a href="/write" class="hover-one">心理论坛</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</li>
+        <li><a href="/情绪">心理测试</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</li>
+        <li><a href="https://xinli.swjtu.edu.cn/" class="hover-one">心理咨询</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|
+        </li>
+        <li class="last"><a href="/knowledge" class="hover-one">心理科普</a></li>
+    </ul>
+
+
+</div>
+<div class="uc-wrap" style="height: 680px">
+    <div class="uc-left" style="height:600px">
+
+        <ul>
+            <div class="ul-title">
+                内容管理
+            </div>
+            <li><a>我的帖子</a></li>
+            <li><a href="/collect">文章收藏</a></li>
+        </ul>
+        <ul>
+            <div class="ul-title">
+                个人信息
+            </div>
+            <li><a href="/user">基本信息</a></li>
+            <li><a href="/location">我的位置</a></li>
+            <li><a href="/scores">测试分数</a></li>
+        </ul>
+    </div>
+    <div class="uc-main">
+        <div class="uc-curr">
+            测试分数
+        </div>
+        <div class="uc-info">
+            <div id="main" style="width: 600px;height:400px;margin-left:100px"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    var scores = [{{ test.depress }}, {{ test.feeling }}, {{ test.anxiety }}, {{ test.character }}]
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '仅展示最新一次的测试分数'
+        },
+        tooltip: {},
+        legend: {
+            data: ['分数']
+        },
+        xAxis: {
+            data: ['抑郁症测试', '情绪测试', '焦虑测试', '苛刻性格测试']
+        },
+        yAxis: {},
+        series: [
+            {
+                name: '分数',
+                type: 'bar',
+                data: [scores[0], scores[1], scores[2], scores[3]],
+                itemStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0, // 若将此值设为1，表示从右到左渐变
+                        y: 1, // 若将此值设为1，表示从上到下渐变
+                        x2: 0, // 左
+                        y2: 0, // 上
+                        colorStops: [
+                            {
+                                offset: 0,
+                                color: '#192060' // 0% 处的颜色
+                            },
+                            {
+                                offset: 0.9,
+                                color: '#00C0FF' // 90% 处的颜色
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+
+
+
+
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SDS抑郁症测试</title>
+    <link href="{{ url_for('static', filename = 'home/css/xinliceshi.css') }}" rel="stylesheet" type="text/css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+<div class="index">
+    <h1 class="biaoti1">SDS抑郁症测试</h1>
+    <h2 class="biaoti2">试题来源：小红书</h2>
+    <h3 class="biaoti3">选A得3分，选B得2分，选C得1分</h3>
+    <h4 class="biaoti4">分数越高，抑郁程度越高</h4>
+    <hr>
+    <form class="biaodan" action="/抑郁症" method="POST">
+        <ol>
+            <li>请选择今天的日期</li>
+            <label><input type="date" name="riqi"/></label>
+            <br/>
+            <br/>
+            <li>我觉得闷闷不乐，情绪低沉</li>
+            <label><input type="radio" name="question1" value="3"/></label>绝大部分时间<br/>
+            <label><input type="radio" name="question1" value="2"/></label>偶尔<br/>
+            <label><input type="radio" name="question1" value="1"/></label>基本没有<br/>
+            <br/>
+            <li>我觉得一天中早晨最好</li>
+            <label><input type="radio" name="question2" value="3"/></label>基本没有<br/>
+            <label><input type="radio" name="question2" value="2"/></label>偶尔<br/>
+            <label><input type="radio" name="question2" value="1"/></label>绝大部分时间<br/>
+            <br/>
+            <li>我一阵阵哭出来或觉得想哭</li>
+            <label><input type="radio" name="question3" value="3"/></label>绝大部分时间<br/>
+            <label><input type="radio" name="question3" value="2"/></label>偶尔<br/>
+            <label><input type="radio" name="question3" value="1"/></label>基本没有<br/>
+            <br/>
+            <li>我晚上睡眠不好</li>
+            <label><input type="radio" name="question4" value="3"/></label>绝大部分时间<br/>
+            <label><input type="radio" name="question4" value="2"/></label>偶尔<br/>
+            <label><input type="radio" name="question4" value="1"/></label>基本没有<br/>
+            <br/>
+            <li>我无缘无故地感到疲乏</li>
+            <label><input type="radio" name="question5" value="3"/></label>绝大部分时间<br/>
+            <label><input type="radio" name="question5" value="2"/></label>偶尔<br/>
+            <label><input type="radio" name="question5" value="1"/></label>基本没有<br/>
+            <br/>
+            <li>我发觉我的体重在下降</li>
+            <label><input type="radio" name="question6" value="3"/></label>绝大部分时间<br/>
+            <label><input type="radio" name="question6" value="2"/></label>偶尔<br/>
+            <label><input type="radio" name="question6" value="1"/></label>基本没有<br/>
+            <br/>
+            <li>我有便秘的苦恼</li>
+            <label><input type="radio" name="question7" value="3"/></label>绝大部分时间<br/>
+            <label><input type="radio" name="question7" value="2"/></label>偶尔<br/>
+            <label><input type="radio" name="question7" value="1"/></label>基本没有<br/>
+            <br/>
+            <li>我突然感觉心跳很快</li>
+            <label><input type="radio" name="question8" value="3"/></label>绝大部分时间<br/>
+            <label><input type="radio" name="question8" value="2"/></label>偶尔<br/>
+            <label><input type="radio" name="question8" value="1"/></label>基本没有<br/>
+            <br/>
+            <li>我觉得不安而平静不下来</li>
+            <label><input type="radio" name="question9" value="3"/></label>绝大部分时间<br/>
+            <label><input type="radio" name="question9" value="2"/></label>偶尔<br/>
+            <label><input type="radio" name="question9" value="1"/></label>基本没有<br/>
+            <br/>
+
+        </ol>
+        <input type="hidden" name="my_var" id="my_var_input">
+        <br/>
+
+        <input type="submit" id="tijiao">
+    </form>
+    <a href="/">返回主页</a>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#tijiao").click(function () {
+            let totalScore = 0;
+            totalScore += parseInt($('input[name="question1"]:checked').val());
+            totalScore += parseInt($('input[name="question2"]:checked').val());
+            totalScore += parseInt($('input[name="question3"]:checked').val());
+            totalScore += parseInt($('input[name="question4"]:checked').val());
+            totalScore += parseInt($('input[name="question5"]:checked').val());
+            totalScore += parseInt($('input[name="question6"]:checked').val());
+            totalScore += parseInt($('input[name="question7"]:checked').val());
+            totalScore += parseInt($('input[name="question8"]:checked').val());
+            totalScore += parseInt($('input[name="question9"]:checked').val());
+            alert("总得分是: " + totalScore);
+            document.getElementById('my_var_input').value = totalScore;
+        });
+    });
+</script>
+</body>
+</html>

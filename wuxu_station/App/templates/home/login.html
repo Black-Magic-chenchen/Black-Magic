@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'home/css/login_style.css') }}">
+ 
+    <title>登陆</title>
+</head>
+ 
+<body>
+    <section>
+        
+        <div class="box">
+            <!-- 背景圆 -->
+            <div class="circle" style="--x:0"></div>
+            <div class="circle" style="--x:1"></div>
+            <div class="circle" style="--x:2"></div>
+            <div class="circle" style="--x:3"></div>
+            <div class="circle" style="--x:4"></div>
+            <!-- 登录框 -->
+            <div class="container">
+                <div class="form">
+                    <h2>登录</h2>
+                    <form method="POST" action="/login">
+                        <div class="inputBox">
+                            <input type="text" name='username' placeholder="用户名">
+ 
+                        </div>
+                        <div class="inputBox">
+                            <input type="password" name="password" placeholder="密码">
+ 
+                        </div>
+                        <div class="inputbox">
+                           <button type="submit" value="登录"><a style="text-decoration: none;color:#666;" >登&nbsp&nbsp录</a></button>
+                            
+ 
+                        </div>
+                        </form>
+                        <p class="forget">没有账户?<a href="/register">
+                                注册
+                            </a></p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+ 
+</html>

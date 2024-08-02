@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=uBEO1YCjFzlm0MoLvyrehkPI5rAcXdca"></script>
+    <title>我的位置</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'home/css/user_style.css') }}">
+</head>
+
+<body>
+    <div class="header">
+        <div class="img-logo">
+              <img src="{{ url_for('static', filename = 'home/images/驿站2.png') }}">
+        </div>
+        <p class="name">无绪驿站</p>
+      <ul class="nav">
+        <li><a href="/" class="hover-one">首页</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</li>
+        <li><a href="/write" class="hover-one">心理论坛</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</li>
+        <li><a href="/情绪">心理测试</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</li>
+        <li><a href="https://xinli.swjtu.edu.cn/" class="hover-one">心理咨询</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|</li>
+        <li class="last"><a href="/knowledge" class="hover-one">心理科普</a></li>
+      </ul>
+
+
+
+    </div>
+    <div class="uc-wrap">
+        <div class="uc-left" >
+
+              <ul>
+                <div class="ul-title">
+                    内容管理
+                </div>
+                <li><a>我的帖子</a></li>
+                <li><a href="/collect">文章收藏</a></li>
+              </ul>
+              <ul>
+                <div class="ul-title">
+                    个人信息
+                </div>
+                <li><a href='/user'>基本信息</a></li>
+                  <li><a href='/location'>我的位置</a></li>
+                   <li><a href="/scores">测试分数</a></li>
+              </ul>
+        </div>
+        <div class="uc-main">
+            <div class="uc-curr">
+                我的位置
+            </div>
+            <div class="uc-info">
+                 <div style="margin:5px 10px;">
+
+                 <div style="width:600px;height:480px;border:1px solid rgb(128,128,128);margin:10px auto" id="container"></div>
+
+
+                </div>
+                <iframe name="weather_inc"
+	                src="http://i.tianqi.com/index.php?c=code&id=7"
+	                style="border:solid 1px #7ec8ea; width:300px; height:130px;margin-left:230px;padding-right:30px"  >
+                </iframe>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+ <script type="text/javascript">
+			var map = new BMap.Map("container"); // 创建Map实例
+			var point = new BMap.Point(116.331398, 39.897445);
+			map.centerAndZoom(point, 12); //初始化地图,用一经纬度坐标设置地图中心点
+
+			var geolocation = new BMap.Geolocation();
+			geolocation.getCurrentPosition(function(r) {
+						if(this.getStatus() == BMAP_STATUS_SUCCESS) {
+							getAddress(r.point)
+							var ggPoint = new BMap.Point(r.point.lat, r.point.lng); //转化坐标
+							var map = new BMap.Map("container");
+							map.centerAndZoom(ggPoint, 15);
+							console.log(ggPoint);
+							//添加marker
+							var markergg = new BMap.Marker(ggPoint);
+							map.addOverlay(markergg); //添加GPS marker
+							var labelgg = new BMap.Label("", {
+								offset: new BMap.Size(20, -10)
+							}); //显示当前区域
+							markergg.setLabel(labelgg); //添加GPS label
+							console.log(markergg);
+							//添加控件
+							map.addControl(new BMap.NavigationControl()); //平移缩放控件
+							map.addControl(new BMap.ScaleControl()); //比例尺
+							map.addControl(new BMap.OverviewMapControl()); //缩略地图
+
+							var point = new BMap.Point(markergg.point.lat, markergg.point.lng); //根据经纬度设置中心点坐标
+							map.centerAndZoom(point, 15);
+							//获取地址信息，设置地址label
+							function getAddress(point) {
+								var geocoder= new BMap.Geocoder();
+								geocoder.getLocation(point, function(addComp ) {
+									var addComp = addComp.addressComponents;
+									var address = addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber; //获取地址
+									 setTimeout(function(){
+										alert("您当前所在位置是：" + address)
+							    	}, 1000);
+								});
+							}
+						}
+					})
+		</script>
+
+
+
+
+
+

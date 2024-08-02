@@ -1,0 +1,88 @@
+{% extends "home/forumbase.html" %}
+
+{% block title %}论坛详情{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='agenda/agenda-static/css/detail.css') }}"
+          xmlns="http://www.w3.org/1999/html">
+{% endblock %}
+
+{% block body %}
+    <div class="row" style="margin-top: 20px;">
+        <div class="col"></div>
+        <div class="col-10" style="background-color: #fff;padding: 20px;">
+
+            <p class="question-info">
+                <span>作者：{{ content.user.nicheng }}</span>
+                <span>时间：{{ content.create_time }}</span>
+            </p>
+            <hr>
+            <p class="question-content">{{ content.content }}</p>
+            {% if content.img %}
+                <img class="side-question-comment" src="{{ url_for('static',filename=content.img) }}"
+                     alt="">{% endif %}
+            <hr>
+             <table class="layui-table" style="width: 350px;margin-left: 0">
+                                <colgroup>
+                                    <col width="500">
+                                    <col width="0">
+                                    <col>
+                                </colgroup>
+                                <tbody>
+
+                                <tr>
+                                    <td>{{ content.url }}</td>
+                                    <td><a href="/video_view?url={{ content.url }}" class="layui-btn  layui-btn-sm">点击观看</a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+            <h4 class="comment-group-title">评论（{{ content.answers|length }}）：</h4>
+            <form action="/forum/answer" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="text" placeholder="请填写评论" name="content" class="form-control">
+                    <input type="hidden" name="author_id" value="{{ content.id }}">
+                </div>
+                <div class="form-group" style="text-align: right;">
+                    <input type="file" name='file' id="fileinp" accept='image/*'
+                           onChange="getFileNameAndExtension()">
+                    <button class="btn btn-primary">评论</button>
+                </div>
+            </form>
+            <ul class="comment-group">
+                {% for answer in content.answers %}
+                    <p>
+                    <div class="user-info">
+                        {% if answer.speaker.img %}
+                            <img class="avatar" src="{{ url_for('static',filename=answer.speaker.img) }}" alt="">
+                        {% else %}
+                            <img class="side-question-avatar"
+                                 src="{{ url_for('static',filename='home/images/avatar.jpg') }}" alt="">
+                        {% endif %}
+                        <span class="username">{{ answer.speaker.username }}</span>
+                        <span class="create-time">{{ answer.create_time }}</span>
+                        {% if user.id==answer.speaker.id %}
+                            <span class="username"><a href="/forum/answer/del/{{ answer.id }}">删除</a></span>
+                        {% endif %}
+                    </div>
+                    <p class="comment-content">{{ answer.content }}</p>
+                    {% if answer.img %}
+                        <img class="side-question-reduce"
+                             src="{{ url_for('static',filename=answer.img) }}"
+                             alt="">{% endif %}
+                    {#                    <div class="question-main">#}
+                    {#                            <div class="comment-content"> {{ answer.content }}#}
+                    {#                            </div>#}
+                    {#                            {% if answer.img %}#}
+                    {#                                <img class="side-question-reduce" src="{{ url_for('static',filename=answer.img) }}"#}
+                    {#                                     alt="">{% endif %}#}
+                    {#                        </div>#}
+                {% endfor %}
+
+            </ul>
+        </div>
+        <div class="col"></div>
+    </div>
+{% endblock %}
+

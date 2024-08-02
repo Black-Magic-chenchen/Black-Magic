@@ -1,0 +1,210 @@
+.page-container {
+    width: 880px;
+    opacity:0.8;
+    margin:auto; 
+    height:auto;
+    }
+
+
+body{
+    background:whitesmoke;
+    font-size:100%;
+    background-image: url(../images/QQ图片20231210161559.jpg);
+}
+.main-nav {
+	background: white;
+	height: 115px;
+    position:relative;
+    margin-top:2%;
+    border-radius: 5px;
+}
+
+.header {
+	background:#ffffff;
+	height: 240px;
+}
+
+.container-one {
+	float:right;
+	width: 480px;
+}
+.心理测试 {
+	margin-right:500px;
+   
+	
+}
+.心理咨询{
+    border-radius: 5%;
+    background:white;
+    margin-bottom:5px;
+}
+.倾诉论坛{
+    border-radius: 5%;
+    
+    background:#DCEBED;
+    padding-right:10%;
+}
+.footer {
+    width:100%;
+	margin-top:5%;
+	background: #282c2c;
+	height: 50px;
+    clear:both;
+    
+}
+.img{
+    display:block;
+}
+
+.test{
+    width:77px;
+    float:left;
+    position:absolute;
+    left:27px;
+    margin-top:5px;
+}
+#first{
+    margin:0;
+    text-align:center;
+    font-size:20px;
+    color:#333333;
+}
+.study{
+    position:absolute; 
+    left:214px;
+    margin-top:5px;
+}
+.communicate{
+    position:absolute;
+    left:401px;
+    margin-top:5px;
+}
+.help{
+    position:absolute;
+    left:588px;
+    margin-top:5px;
+}
+.advice{
+    position:absolute;
+    left:775px;
+    margin-top:5px;
+}
+#logo{
+    float:left;
+    width:140px;
+    margin-right:10px;
+    margin-left:10px;
+}
+#testcontent{
+    text-align:center;
+    font-size:20px;
+    color:#000000;
+    float:left;
+    padding-top:30px;
+    letter-spacing:3px;
+}
+#test_list{
+    background-color:#e6e6e6;
+    color:#212121;
+    margin:auto;
+    padding-left:20px;
+    border-radius: 5%;
+    border: 2px solid #e6e6e6;
+}
+#two{
+    color:#13404f;
+    margin:10px;
+}
+.text{
+    float:right;
+    width:auto;
+}
+.look-for{
+    background-color:#257f69;
+    padding:2px;
+    color:#ffffff;
+    display:block;
+    
+}
+.look-for-text{
+    padding-left:30%;
+    padding-right:30%;
+    display:block;
+    font-size:20px;
+    letter-spacing:4px;
+    padding-top:5%;
+    padding-bottom:5%;
+}
+a{
+    text-decoration:none;
+}
+.look-for:hover{
+    background-color:#54ff9f;
+}
+.心理科普{
+    background-color:#F0F8FF;
+    clear:right;
+    height:360px;
+    border:2px #F0F8FF solid;
+    border-radius: 5%;
+}
+.example1{
+    float:left;
+    width:48%;
+    height:auto;
+   padding-top:5%;
+   background-color:#F8F8FF;
+   margin-right:3%;
+   margin-left:1%;
+   
+}
+.example2{
+    float:left;
+    width:48%;
+    height:auto;
+   padding-top:5%;
+   background-color:#F8F8FF;
+}
+
+.G{
+    display:block;
+    float:left;
+    margin-right:1.5rem;
+}   
+.页脚{
+    color:#B5BCC3;
+    display:block;
+    float:left;
+    margin-top:16px;
+   margin-right:16px;
+}
+
+.text_img{
+   
+    border-radius: 5px;
+    display:inline-block;
+    margin-right:5px;
+}
+
+.eachBox {
+    overflow: hidden;
+}
+
+.changeBox_a1 {
+    width: 720px;
+    height: 240px;
+    position:relative;
+    border: 1px solid #aaa;
+}
+
+.changeBox_a1 .a_bigImg img {
+    position: relative;
+    display: none;
+}
+
+.changeDiv {
+    position: absolute;
+    display: none;
+
+    float:left;
+}
